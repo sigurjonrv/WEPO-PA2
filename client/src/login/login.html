@@ -1,0 +1,19 @@
+<form class="form-inline">
+	<div class="form-group">
+		<label for="exampleInputName2">Choose a Username:</label>
+		<input type="text" class="form-control" id="exampleInputName2" placeholder="Username" ng-model="user">
+	</div>
+	<button type="submit" class="btn btn-primary" ng-click="onLogin()">Join the Chatserver!</button>
+	<div id="err" class="alert alert-danger" role="alert" style="visibility: hidden">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<span class="sr-only">Error:</span>
+		Username is invalid, or aldredy in use by someone else.
+	</div>
+	<div id="err2" class="alert alert-danger" role="alert" style="visibility: hidden">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<span class="sr-only">Error:</span>
+		You must create a username to enter the chat!.
+	</div>
+</form>
+
+

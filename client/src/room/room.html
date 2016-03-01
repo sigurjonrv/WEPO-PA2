@@ -1,0 +1,112 @@
+<h3>
+	You are logged in as 
+	<span class="label label-primary">{{user}}</span>
+	<a class="label label-warning" ng-click="changeUserName()">change username</a>
+</h3>
+
+
+<div class="panel panel-default" style="max-width: 650px">
+	<div class="panel-body" style="min-height: 250px; max-height: 250px; overflow-y: scroll;">
+		<ul ng-repeat="message in messageArr" style="list-style: none">
+			<li> <b>{{message.nick}} :  </b>{{message.message}}	</li>
+		</ul>
+	</div>
+	<div class="panel-footer">
+		<form class="form-inline">
+			<input type="text" class="form-control" id="mess" placeholder="message..." ng-model="message" size="70px">
+			<button type="submit" class="btn btn-primary" ng-click="sendMessage()">Send!</button>
+		</form>
+		<h3><a class="label label-danger" ng-click="leaveRoom()()">Leave Room!</a></h3>
+	</div>
+</div>
+
+
+<div class="panel panel-default" style="max-width: 650px">
+	<div class="panel-body" >
+		<h4>Users</h4>
+	</div>
+	<div class="panel-footer">
+		<ul ng-repeat="admin in adminlist" style="list-style: none">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pm" style="min-width: 250px" ng-click="PMrecever(admin)">
+				{{admin}} (admin)
+			</button>
+		</ul>
+		<ul ng-repeat="users in userlist" style="list-style: none">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pm" style="min-width: 250px" ng-click="PMrecever(users)">
+				{{users}}
+			</button>
+		</ul>
+		<div class="modal fade" id="pm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">Send User a private message</h4>
+					</div>
+					<div class="modal-body">
+						<div class="panel-footer">
+							<form class="form-inline">
+								<input type="text" class="form-control" id="Pmess" placeholder="message..." ng-model="PMmessage" size="55px">
+								<button type="submit" class="btn btn-primary" ng-click="sendPrivateMessage(P_recever, PMmessage)">Send!</button>
+							</form>
+							<div id="PMerr" class="alert alert-danger" role="alert" style="visibility: hidden">
+								<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								<span class="sr-only">Error:</span>
+								You silly! you cant your self a private message.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#adminActions" style="min-width: 250px">Admin Actions</button>
+
+<div class="modal fade" id="adminActions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Admin actions</h4>
+			</div>
+			<div class="modal-body">
+				<div class="panel panel-default" style="max-width: 650px">
+					<div class="panel-body" style="min-height: 250px; max-height: 250px; overflow-y: scroll;">
+						Users:
+						<ul ng-repeat="users in userlist" style="list-style: none">
+							<form class="form-inline">
+								<li >
+									<label style="min-width: 250px">{{ users }}</label>
+									<button type="submit" class="btn btn-warning" ng-click="kickUser(users)">kick User!</button>
+									<button type="submit" class="btn btn-danger" ng-click="banUser(users)">Ban User!</button>
+								</li>
+							</form>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="modal fade " id="PMModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">You have recived a private message from: {{PMSender}}</h4>
+			</div>
+			<div class="modal-body"> {{PM}} </div>
+			<div class="modal-footer">
+				<form class="form-inline" id="pm">
+					<input type="text" class="form-control" id="Pmess" placeholder="message..." ng-model="PMmessage" size="55px">
+					<button type="submit" class="btn btn-primary" ng-click="replayPM(PMSender, PMmessage)">Send!</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

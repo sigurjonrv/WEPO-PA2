@@ -1,0 +1,28 @@
+<div class="list-group">
+	<h3>
+		You are logged in as 
+		<span class="label label-primary">{{user}}</span>
+		<a class="label label-warning" ng-click="logOut()">Change Username</a>
+		<a class="label label-danger" ng-click="logOut()">Log Out!</a>
+	</h3>
+
+	<ul style="list-style: none">
+		<li ng-repeat= "(key, value) in roomlist">
+			<button type="button" class="list-group-item" ng-click="joinRoom(value)">{{value}}</button>
+		</li>
+	</ul>
+</div>
+
+<form class="form-inline">
+	<div class="form-group">
+		<label for="exampleInputName2">Createa A New Room:</label>
+		<input type="text" class="form-control" id="exampleInputName2" placeholder="Room name..." ng-model="newRoomName">
+	</div>
+	<button type="submit" class="btn btn-primary" ng-click="createRoom(newRoomName)">Create!</button>
+	<div id="err" class="alert alert-danger" role="alert" style="visibility: hidden">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<span class="sr-only">Error:</span>
+		Room name is invalid, or aldredy exist.
+	</div>
+</form>
+

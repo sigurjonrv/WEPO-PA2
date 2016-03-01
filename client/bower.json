@@ -1,0 +1,27 @@
+{
+  "name": "myChat",
+  "authors": [
+    "Johann Gislason <joigisla91@hotmail.com>"
+  ],
+  "description": "Awesome chat program",
+  "main": "index.js",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-bootstrap": "^1.1.2",
+    "angular-animate": "^1.5.0",
+    "jquery": "^2.2.0",
+    "lodash": "^4.5.0",
+    "bootstrap": "^3.3.6",
+	"angular-route" : "^1.5.0"
+  }
+}

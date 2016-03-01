@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+	<head>
+		<title></title>
+		<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		
+		<div class="container" id='main' style="padding-top: 100px;">
+			<div class="jumbotron">
+				<h1>Welcome To The Chatserver!!!</h1>
+				<p>Chat with your friends in your own room! Or perhaps find new freinds</p>
+				<div ng-view>
+				</div>
+					<div id="footer" style="font-size: 2px; position: fixed; bottom: 0; right: 100px;">
+						<p> &copy; by: Sigurjon Runar Vikarsson & Johann Gislasson</p>
+					</div>	
+			</div>
+		</div>
+		<script src="src/build/app.js"></script>
+	</body>
+</html>
